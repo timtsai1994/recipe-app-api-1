@@ -23,3 +23,4 @@ RUN adduser -D username
 # if we don't do this. the image will run the application using the root account which is not recommended.Because that mean if somebody compromises our application .they can have the root access to the image.
 # create a seperate user just for this application limit the scope that an attacker would have in this documentation
 USER username 
+#run docker build . on cmd to execute any Dockerfile on this project
