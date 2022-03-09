@@ -1,0 +1,14 @@
+#Docker compose is a tool that allows us to run the Docker image easily from the service, managing the different services that make up our project
+#first line of the docker compose configuration file is the version of Docker compose that we're going to be writing for this file.
+version: "3"
+
+services: 
+  app: #name of the service "app"
+    build: 
+      context: .
+    ports:
+    - "8000:8000"
+    volumes: #allow us to get the updates that we make to our porject into our docker image in real time.This means whenever you change a file or sth in the project will be AUTOMACTICALLY updated in the container and you DON'T NEED TO restart Docker to get the changes into effect.
+      - ./app:/app
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
